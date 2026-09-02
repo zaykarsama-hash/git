@@ -1,12 +1,94 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>git project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>hello Zaykar!,good work </h1>
-    <p>Lorem  dolor .</p>
-    <button type="reset">reset</button>
+    <header class="hero">
+        <h1 class="title">My Sprix Project</h1>
+        <p class="subtitle">In this project I'll show you some info about me</p>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 class="section-title">Personal Info</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Name:</span>
+                    <span class="value">Mohamed Hassan Abdelaziz</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Age:</span>
+                    <span class="value">16 Years</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Nickname:</span>
+                    <span class="value">FAIREN ZAYKAR SAMA</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Favourite Countries:</span>
+                    <ul class="list">
+                        <li>Egypt 🇪🇬</li>
+                        <li>Japan 🇯🇵</li>
+                        <li>Russia 🇷🇺</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">Experience Info</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Learning Programming:</span>
+                    <span class="value">3 Years</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Languages Learned:</span>
+                    <ul class="list">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="info-item">
+                    <span class="label">Certificates:</span>
+                    <ul class="list">
+                        <li>ICDL</li>
+                        <li>Tofas in Math 2024</li>
+                        <li>Tofas in JavaScript Lv1 2025</li>
+                        <li>Tofas in JavaScript Lv2 2026</li>
+                    </ul>
+                </div>
+                <div class="info-item">
+                    <span class="label">Achievement:</span>
+                    <span class="value">3rd place in Sharqia Governorate Programming Geniuses</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card form-card">
+            <h2 class="section-title">Write Your Info</h2>
+            <form id="userForm" class="form">
+                <div class="form-group">
+                    <label for="name" class="label">Name</label>
+                    <input type="text" id="name" class="input" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="age" class="label">Age</label>
+                    <input type="text" id="age" class="input" placeholder="Enter your age">
+                </div>
+                <div class="form-group">
+                    <label for="fav" class="label">Favourite Countries</label>
+                    <input type="text" id="fav" class="input" placeholder="Enter favourite countries">
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
