@@ -1,6 +1,6 @@
 const http = require('http');
 
-const server = http.createServer((req, res) => {
+export default async function handler((req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
   // GET - بيرجع JSON
