@@ -3,22 +3,21 @@ const users = [{ name: "ali", age: 25 }];
 module.exports = function handler(req, res) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
 
-  // 1. الرابط الأساسي: /api/app
-  if (req.method === 'GET' && !req.query.action) {
+  const url = req.url.split('?')[0];
+
+  if (req.method === 'GET' && url === '/api/app') {
     return res.status(200).json({ message: 'أهلاً بيك', school: 'الزهراء' });
   }
 
-  // 2. جلب المستخدمين: /api/app?action=users
-  if (req.method === 'GET' && req.query.action === 'users') {
+  if (req.method === 'GET' && url === '/api/app/users') {
     return res.status(200).json(users);
   }
 
-  // 3. إضافة بيانات: POST إلى /api/app
-  if (req.method === 'POST') {
-    const data = req.body; // Vercel يجهزها لك تلقائياً
-    
+  if (req.method === 'POST' && url === '/api/app/data') {
+    const data = req.body;
+
     if (!data || !data.name) {
-      return res.status(400).json({ error: 'برجاء إرسال بيانات صحيحة' });
+      return res.status(400).json({ error: 'برجاء إرسال بيانات صحيحة بصيغة JSON' });
     }
 
     users.push(data);
