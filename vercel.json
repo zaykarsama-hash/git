@@ -1,4 +1,8 @@
 {
+  
+  "regions": [
+    "cdg1"
+  ],
   "rewrites": [
     {
       "source": "/api/app/:path*",
