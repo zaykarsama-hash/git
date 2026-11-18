@@ -1,37 +1,29 @@
-//const http = require('http');
+const users = [{ name: "ali", age: 25 }];
 
-const users =[
-  {
-    name:"ali", 
-    age:25
-  }
-] 
+module.exports = function handler(req, res) {
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
 
-export default function handler(req, res) {
-  res.setHeader('Content-Type', 'application/json');
-
-  // GET - بيرجع JSON
-  if (req.method === 'GET' && req.url === '/api/app.js') {
-    res.end(JSON.stringify({ message: 'أهلاً بيك', school: 'الزهراء' }));
-    return;
-  }
-  if (req.method === 'GET' && req.url === '/api/app/users') {
-    res.end(JSON.stringify(users));
-    return;
+  // 1. الرابط الأساسي: /api/app
+  if (req.method === 'GET' && !req.query.action) {
+    return res.status(200).json({ message: 'أهلاً بيك', school: 'الزهراء' });
   }
 
-  // POST - بيستقبل JSON
-  if (req.method === 'POST' && req.url === '/api/app/data') {
-    let body ="";
-
-    req.on('data', chunk => body += chunk);
-    req.on('end', () => {
-      const data = JSON.parse(body); // حول النص لـ Object
-      users.push(body);
-      res.end(JSON.stringify(users));
-    });
-    return;
+  // 2. جلب المستخدمين: /api/app?action=users
+  if (req.method === 'GET' && req.query.action === 'users') {
+    return res.status(200).json(users);
   }
 
-  res.end(JSON.stringify({ error: 'مش موجود' }));
+  // 3. إضافة بيانات: POST إلى /api/app
+  if (req.method === 'POST') {
+    const data = req.body; // Vercel يجهزها لك تلقائياً
+    
+    if (!data || !data.name) {
+      return res.status(400).json({ error: 'برجاء إرسال بيانات صحيحة' });
+    }
+
+    users.push(data);
+    return res.status(201).json(users);
+  }
+
+  return res.status(404).json({ error: 'مش موجود' });
 };
