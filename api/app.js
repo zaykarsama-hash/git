@@ -15,13 +15,13 @@ export default function handler(req, res) {
     res.end(JSON.stringify({ message: 'أهلاً بيك', school: 'الزهراء' }));
     return;
   }
-  if (req.method === 'GET' && req.url === '/users') {
+  if (req.method === 'GET' && req.url === '/api/app.js/users') {
     res.end(JSON.stringify(users));
     return;
   }
 
   // POST - بيستقبل JSON
-  if (req.method === 'POST' && req.url === '/data') {
+  if (req.method === 'POST' && req.url === '/api/app.js/data') {
     let body ="";
 
     req.on('data', chunk => body += chunk);
