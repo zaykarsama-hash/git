@@ -11,7 +11,7 @@ export default function handler(req, res) {
   res.setHeader('Content-Type', 'application/json');
 
   // GET - بيرجع JSON
-  if (req.method === 'GET' && req.url === '/') {
+  if (req.method === 'GET' && req.url === '/api/app.js') {
     res.end(JSON.stringify({ message: 'أهلاً بيك', school: 'الزهراء' }));
     return;
   }
