@@ -1,0 +1,8 @@
+{
+  "name": "my-vercel-firebase-api",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "firebase": "^11.0.0"
+  }
+}
